@@ -88,7 +88,8 @@ class _PageCustomGridviewState extends State<PageCustomeGridview> {
                 desc: dataMakanan['keterangan'],
               ).show();
             },
-            child: Stack(
+            child: Card(
+                child: Column(
               children: [
                 Align(
                   alignment: Alignment.bottomCenter,
@@ -103,13 +104,17 @@ class _PageCustomGridviewState extends State<PageCustomeGridview> {
                       width: 120,
                       fit: BoxFit.cover,
                     )),
-                Padding(padding: EdgeInsets.all(100)),
-                Text(
-                  dataMakanan["nama"],
-                  style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold),
-                )
+                Padding(padding: EdgeInsets.all(10)),
+                Positioned(
+                    bottom: 8,
+                    child: Text(
+                      dataMakanan["nama"],
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                          fontSize: 12.0, fontWeight: FontWeight.bold),
+                    ))
               ],
-            ),
+            )),
           ),
         ),
       ));
@@ -134,6 +139,8 @@ class _PageCustomGridviewState extends State<PageCustomeGridview> {
         backgroundColor: Colors.deepOrange,
       ),
       body: GridView.count(
+        // crossAxisCount: 2,
+        childAspectRatio: 0.8,
         crossAxisCount: 2,
         children: daftarRambuLalulintas,
       ),
