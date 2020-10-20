@@ -88,18 +88,22 @@ class _PageCustomGridviewState extends State<PageCustomeGridview> {
                 desc: dataMakanan['keterangan'],
               ).show();
             },
-            child: Column(
+            child: Stack(
               children: [
+                Align(
+                  alignment: Alignment.bottomCenter,
+                ),
                 Hero(
+
                     //Animasi untuk gambar
                     tag: dataMakanan['nama'],
                     child: Image.asset(
                       "images/$gambarMakanan",
                       height: 120.0,
                       width: 120,
-                      fit: BoxFit.contain,
+                      fit: BoxFit.cover,
                     )),
-                Padding(padding: EdgeInsets.all(10)),
+                Padding(padding: EdgeInsets.all(100)),
                 Text(
                   dataMakanan["nama"],
                   style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold),
@@ -124,6 +128,7 @@ class _PageCustomGridviewState extends State<PageCustomeGridview> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // resizeToAvoidBottomPadding: false,
       appBar: AppBar(
         title: Text("Apps List Rambu"),
         backgroundColor: Colors.deepOrange,
